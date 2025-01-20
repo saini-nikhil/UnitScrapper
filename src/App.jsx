@@ -35,6 +35,16 @@ const App = () => {
                 >
                     Sardar Ji Shop
                 </button>
+                <button
+                    onClick={() => handleShopChange('Checking Purpose')}
+                    className={`px-6 py-2 font-medium rounded-lg shadow-md ${
+                        selectedShop === 'Sardar Ji shop'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-200 text-gray-800 hover:bg-blue-300'
+                    }`}
+                >
+                    Only for Checking Puprpose
+                </button>
             </div>
 
             <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">

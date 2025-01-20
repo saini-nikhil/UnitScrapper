@@ -10,20 +10,20 @@ const App = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
+        <div className="min-h-screen bg-gray-100 p-6 sm:p-4">
             <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
                 Multi-Shop Management
             </h1>
-            <div className="flex justify-center space-x-4 mb-8">
+            <div className="flex flex-wrap justify-center space-x-4 mb-8">
                 <button
                     onClick={() => handleShopChange('Restaurant')}
                     className={`px-6 py-2 font-medium rounded-lg shadow-md ${
-                        selectedShop === 'Restrunet'
+                        selectedShop === 'Restaurant'
                             ? 'bg-blue-500 text-white'
                             : 'bg-gray-200 text-gray-800 hover:bg-blue-300'
                     }`}
                 >
-                    Restrunet
+                    Restaurant
                 </button>
                 <button
                     onClick={() => handleShopChange('Sardar Ji shop')}
@@ -38,8 +38,7 @@ const App = () => {
             </div>
 
             <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-            <UnitForm shopName={selectedShop} onFormSubmit={() => console.log("Form submitted!")} />
-
+                <UnitForm shopName={selectedShop} />
             </div>
             <div className="max-w-4xl mx-auto bg-white p-6 mt-6 rounded-lg shadow-lg">
                 <Fetchdata shopName={selectedShop} />

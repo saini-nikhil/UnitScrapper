@@ -38,7 +38,8 @@ const App = () => {
             </div>
 
             <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-                <UnitForm shopName={selectedShop} />
+            <UnitForm shopName={selectedShop} onFormSubmit={() => console.log("Form submitted!")} />
+
             </div>
             <div className="max-w-4xl mx-auto bg-white p-6 mt-6 rounded-lg shadow-lg">
                 <Fetchdata shopName={selectedShop} />

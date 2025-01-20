@@ -7,7 +7,8 @@ const UnitForm = ({ shopName, onFormSubmit }) => {
     const [unitCharge, setUnitCharge] = useState(10); // Default unit charge is 10
     const [rent, setRent] = useState('');
     const [total, setTotal] = useState(null); // Added state for total
-    const [result, setResult] = useState('');
+    const [calculatedUnit, setCalculatedUnit] = useState(null); // State for unit difference
+    const [multipliedUnit, setMultipliedUnit] = useState(null); // State for multiplied unit
     const [date, setDate] = useState(new Date().toLocaleDateString()); // Default to today's date
     const [editItem, setEditItem] = useState(null); // State for editing item
 
@@ -40,13 +41,16 @@ const UnitForm = ({ shopName, onFormSubmit }) => {
         }
 
         // Calculate the unit difference
-        const calculatedUnit = newUnitNum - oldUnitNum;
+        const calculatedUnitValue = newUnitNum - oldUnitNum;
+        setCalculatedUnit(calculatedUnitValue); // Update calculatedUnit state
 
-        // Multiply the unit difference by unitCharge (which is 10 by default)
-        const multiplyUnit = calculatedUnit * unitChargeNum;
+        // Multiply the unit difference by unitCharge
+        const multipliedUnitValue = calculatedUnitValue * unitChargeNum;
+        setMultipliedUnit(multipliedUnitValue); // Update multipliedUnit state
 
         // Add rent to the result of multiplyUnit to get the final total
-        const calculatedTotal = multiplyUnit + rentNum;
+        const calculatedTotal = multipliedUnitValue + rentNum;
+        setTotal(calculatedTotal); // Update total state
 
         try {
             if (editItem) {
@@ -72,13 +76,15 @@ const UnitForm = ({ shopName, onFormSubmit }) => {
                     shop: shopName,
                 });
             }
+
             // Reset form
             setNewUnit('');
             setOldUnit('');
             setUnitCharge(10);
             setRent('');
             setTotal(null);
-            setResult('');
+            setCalculatedUnit(null);
+            setMultipliedUnit(null);
             setDate(new Date().toLocaleDateString());
             setEditItem(null);
             onFormSubmit();
@@ -144,11 +150,17 @@ const UnitForm = ({ shopName, onFormSubmit }) => {
                 </button>
             </form>
 
-            {/* Display result below the form */}
-            {total !== null && (
+            {/* Display intermediate calculations and total */}
+            {calculatedUnit !== null && multipliedUnit !== null && total !== null && (
                 <div className="mt-4 p-4 bg-gray-100 border rounded">
                     <p>
-                        <strong>Total:</strong> {total}
+                        <strong>New Unit - Old Unit:</strong> {calculatedUnit}
+                    </p>
+                    <p>
+                        <strong>Calculated Unit * Unit Charge:</strong> {multipliedUnit}
+                    </p>
+                    <p>
+                        <strong>Total (Including Rent):</strong> {total}
                     </p>
                 </div>
             )}

@@ -71,12 +71,12 @@ const FetchData = ({ shopName }) => {
                   <td className="px-4 py-2 border">{item.rent}</td>
                   <td className="px-4 py-2 border">{item.total}</td>
                   <td className="px-4 py-2 border">
-                    <button 
+                    {/* <button 
                       onClick={() => handleEdit(item)} 
                       className="px-4 py-2 bg-blue-500 text-white rounded mr-2"
                     >
                       Edit
-                    </button>
+                    </button> */}
                     <button 
                       onClick={() => handleDelete(item.id)} 
                       className="px-4 py-2 bg-red-500 text-white rounded"

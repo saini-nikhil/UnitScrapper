@@ -35,6 +35,7 @@ const App = () => {
                 >
                     Sardar Ji Shop
                 </button>
+                <br />
                 <button
                     onClick={() => handleShopChange('Checking Purpose')}
                     className={`px-6 py-2 font-medium rounded-lg shadow-md ${

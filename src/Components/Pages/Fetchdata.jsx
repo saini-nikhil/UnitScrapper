@@ -55,7 +55,9 @@ const FetchData = ({ shopName }) => {
                 <th className="px-4 py-2 border">Date</th>
                 <th className="px-4 py-2 border">New Unit</th>
                 <th className="px-4 py-2 border">Old Unit</th>
+                <th className="px-4 py-2 border">Toatal Unit</th>
                 <th className="px-4 py-2 border">Unit Charge</th>
+                <th className="px-4 py-2 border">Multiplyed Unit</th>
                 <th className="px-4 py-2 border">Rent</th>
                 <th className="px-4 py-2 border">Total</th>
                 <th className="px-4 py-2 border">Actions</th>
@@ -67,7 +69,9 @@ const FetchData = ({ shopName }) => {
                   <td className="px-4 py-2 border">{item.date}</td>
                   <td className="px-4 py-2 border">{item.newUnit}</td>
                   <td className="px-4 py-2 border">{item.oldUnit}</td>
+                  <td className="px-4 py-2 border">{item.calculatedUnit}</td>
                   <td className="px-4 py-2 border">{item.unitCharge}</td>
+                  <td className="px-4 py-2 border">{item.multiplyUnit}</td>
                   <td className="px-4 py-2 border">{item.rent}</td>
                   <td className="px-4 py-2 border">{item.total}</td>
                   <td className="px-4 py-2 border">

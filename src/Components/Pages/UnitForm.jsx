@@ -48,13 +48,20 @@ const UnitForm = ({ shopName }) => {
                     total: calculatedTotal,
                     date,
                     shop: shopName,
+                    multiplyUnit,
+                    calculatedUnit
                 }
             );
-            console.log('Form submitted successfully:', response.data);
+            // console.log('Form submitted successfully:', response.data);
             setTotal(calculatedTotal);
             setResult(
                 `(${newUnitNum} - ${oldUnitNum}) = ${calculatedUnit} * ${unitChargeNum} = ${multiplyUnit} + ${rentNum} = ${calculatedTotal}`
             );
+            setNewUnit('');
+            setOldUnit('');
+            setRent('');
+            useState(new Date().toLocaleDateString());
+
         } catch (error) {
             console.error('Error submitting form:', error);
         }
